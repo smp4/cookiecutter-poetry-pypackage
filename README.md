@@ -44,7 +44,7 @@ The following tools are already assumed to be installed: `poetry`, `pipx`, `pyen
 * `project_name` Full name of the project. Can include spaces, capitals etc.
 * `project_slug` underscore, no-spaces version of the project name. Should be the same as the GitHub repo name. Normally just use the default.
 * `project_short_description` A one-liner that appears in headers and other short description fields.
-* `python_version` Version of Python that the package shall run against. Used to set up the virtual environment with `poetry`.
+* `python_version` Version of Python that the package shall run against. Used to set up the virtual environment with `poetry` and `pyenv`. **Must** be a full version specification eg. 3.10.6, or else you will get errors when using `poetry` and `pyenv`.
 * `open_source_license` Select an open source license. See [choosealicense](https://choosealicense.com/).
 * `create_author_file` Create an `AUTHOR.md` file or not.
 * `use_xxx` Use `xxx` package or not.
