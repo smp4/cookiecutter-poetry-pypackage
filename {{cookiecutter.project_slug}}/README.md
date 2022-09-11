@@ -99,7 +99,7 @@ See the `logsetup.py` module for more details.
 Clone the repo:
 
 ```shell
-$ git clone https://github.com/{{cookiecutter.github_username}}/{{project_slug}}
+$ git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}
 ```
 
 `Poetry` is required. 
