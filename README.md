@@ -86,6 +86,8 @@ The GitHub repository name should be the same as the `cookiecutter.project_slug`
 
 ### Local Git Repo Initialisation
 
+`cd` into the directory that cookiecutter just made for your new project. 
+
 Set up the local git repository in your project directory and rename the default branch to `main` for GitHub compatibility:
 
 ```shell
