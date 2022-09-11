@@ -2,10 +2,7 @@
 {% set project_github_link = cookiecutter.project_slug | replace("_", "-") -%}
 # {{ cookiecutter.project_name }}
 
-![versions](https://img.shields.io/pypi/pyversions/{{ project_github_link }}.svg)
-{% if cookiecutter.use_black %}
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-{% endif %}
+![versions](https://img.shields.io/pypi/pyversions/{{ project_github_link }}.svg){% if cookiecutter.use_black %}[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black){% endif %}
 
 {{ cookiecutter.project_short_description }}
 
