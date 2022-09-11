@@ -16,6 +16,7 @@
     "use_yamllint": "n",
     "use_pydocstringformatter": "y",
     "use_isort": "y",
+    "use_docformatter": "y",
     "use_bandit": "y",
     "use_jupyter": "y",
     "jupyter_venvs_dir": "/dev/null",
