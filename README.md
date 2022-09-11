@@ -49,7 +49,6 @@ The following tools are already assumed to be installed: `poetry`, `pipx`, `pyen
 * `create_author_file` Create an `AUTHOR.md` file or not.
 * `use_xxx` Use `xxx` package or not.
 * `use_jupyter` Adds `notebooks` and `reports` directories. Installs an IPython kernel from the project env available to Jupyter in Jupyter's env. Assumes `Jupyter Lab` is already installed and available.
-* `jupyter_venvs_dir` The directory in which the `Ipython` kernel should be installed. `/path/to/jupyter/env`. It could be `/home/<<user>>/.local/pipx/venvs/jupyterlab` if Jupyter is installed with `pipx`.
 * `command_line_interface` Choose a package to set up a boilerplate CLI (or none).
 * `use_pypi` Set up GitHub Actions for CI/CD to PyPI.
 * `pypi_username` PyPI username. Only used if `use_pypi` is selected.
@@ -122,6 +121,22 @@ To check that the environment was installed as expected:
 $ poetry env list
 $ poetry env info
 ```
+
+### Add the Virtual Environment to Jupyter-Lab Kernel List
+
+If you want to use `Jupyter-Lab` as part of your project development flow, it can be useful to add the virtual environment of your project othe `Jupyter-Lab` kernel list. This allows you to select the virtual environment of your project in the kernel list in your notebooks.
+
+For this to work, you should have selected the `use_jupyter` option in the cookiecutter setup to install `ipykernel`.
+
+From within your projects root directory run the following:
+
+```shell
+$ poetry run python -m ipykernel install --prefix=/path/to/jupyter/env --user --name <<venv_name>> --display-name "Python (<<venv_name>>)"
+```
+
+where `/path/to/jupyter/env` is the path to the virtual environment where Jupyter has been installed (and therefore where the kernel will be installed). It could be `/home/<<user>>/.local/pipx/venvs/jupyterlab` if Jupyter is installed with `pipx`, for example.
+
+The `<<venv_name>>` should be replaced with the text used for `project_slug` in the cookiecutter template: this is the name of your virtual environment.
 
 ### More GitHub Setup
 

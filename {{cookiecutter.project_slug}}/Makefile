@@ -34,13 +34,6 @@ dev_install: pyproject.toml
 	poetry info
 
 
-{%- if cookiecutter.use_jupyter == 'y' %}
-.PHONY: jupyter-kernel
-jupyter-kernel:
-	poetry run python -m ipykernel install --prefix={{ cookiecutter.jupyter_venvs_dir }} --user --name {{ cookiecutter.project_slug }} --display-name "Python ({{cookiecutter.project_slug}})"
-{%- endif %}
-
-
 ## Delete all compiled Python files, build, test and coverage artifacts
 clean: clean-build clean-pyc clean-test
 
