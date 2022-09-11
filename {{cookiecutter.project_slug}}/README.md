@@ -2,10 +2,7 @@
 {% set project_github_link = cookiecutter.project_slug | replace("_", "-") -%}
 # {{ cookiecutter.project_name }}
 
-{% if is_open_source %}
 ![versions](https://img.shields.io/pypi/pyversions/{{ project_github_link }}.svg)
-[![GitHub license](https://img.shields.io/github/license/{{cookiecutter.github_username}}/{{ project_github_link }}.svg)](https://github.com/{{cookiecutter.github_username}}/{{ project_github_link }}/blob/main/LICENSE)
-{% endif %}
 {% if cookiecutter.use_black %}
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 {% endif %}
