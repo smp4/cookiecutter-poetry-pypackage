@@ -2,6 +2,8 @@
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for a Python package using Poetry, MkDocs-Material and (optional) layout for data processing.
 
+This template is a work in progress. Please create an issue if you find something that doesn't work!
+
 ## Features
 
 Main features include:
