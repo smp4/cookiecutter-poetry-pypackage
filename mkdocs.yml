@@ -1,0 +1,39 @@
+---
+# Project Information
+site_name: Cookiecutter Poetry Pypackage
+site_author: Sean Pepper
+site_description: >-
+    Cookiecutter template for a Python package using Poetry, 
+    MkDocs-Material and (optional) layout for data processing. 
+
+# Repository information
+repo_name: smp4/cookiecutter-poetry-pypackage
+repo_url: https://github.com/smp4/cookiecutter-poetry-pypackage
+edit_uri: ""
+
+# docs directory
+docs_dir: ""
+
+# Copyright
+copyright: Copyright &copy; 2022 Sean Pepper 
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  language: en
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/smp4
+      name: smp4 on GitHub
+
+# Page tree
+nav:
+  - Home: README.md

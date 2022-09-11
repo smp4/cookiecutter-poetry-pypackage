@@ -1,0 +1,58 @@
+---
+# Project Information
+site_name: {{ cookiecutter.project_name }}
+site_author: {{ cookiecutter.full_name }}
+site_description: {{ cookiecutter.project_short_description }}
+
+# Repository information
+repo_name: {{ cookiecutter.github_username }}/{{ cookiecutter.project_slug.replace('_', '-') }}
+repo_url: https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug.replace('_', '-') }}
+edit_uri: ""
+
+# Copyright
+copyright: Copyright &copy; {% now 'local', '%Y' %} {{ cookiecutter.full_name }}
+
+# Configuration
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tabs
+  language: en
+
+# Plugins
+plugins:
+  - mkdocstrings
+
+# Extensions
+markdown_extensions:
+  - toc:
+      permalink: True
+
+# Footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/{{ cookiecutter.github_username }}
+      name: {{ cookiecutter.github_username }} on GitHub
+
+# Page tree
+nav:
+  - Introduction: index.md
+  - Installation: installation.md
+  - Quick Start: quickstart.md
+  - Tutorials: tutorials.md  
+  - Advanced:
+    - How Tos: advanced/howtos.md
+    - Explanation: advanced/explanation.md
+  - API Reference: api.md
+  - About:
+    - Release Notes: about/changelog.md
+    - Contributor Guide: about/contributing.md
+    - License: about/license.md
+{%- if cookiecutter.create_author_file == 'y' %}      
+    - Authors: about/authors.md
+{%- endif %}      
+  - Glossary: glossary.md

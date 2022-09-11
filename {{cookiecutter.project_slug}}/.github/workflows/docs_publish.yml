@@ -1,0 +1,19 @@
+---
+name: Docs publish
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: {{ cookiecutter.python_version }}
+      - run: pip install mkdocs-material
+      - run: pip install mkdocstrings[python]
+      - run: mkdocs gh-deploy --force
