@@ -28,7 +28,7 @@ PROJECT_NAME = {{ cookiecutter.project_slug }}
 ## Install the required python interpreter and project dependencies into editable mode
 dev_install: pyproject.toml
 	pyenv install {{ cookiecutter.python_version }}
-	pyenv local {{ cookiecutter.python_version }}
+  pyenv local {{ cookiecutter.python_version }}
 	pipx install poetry
 	poetry install
 	poetry info
