@@ -14,7 +14,6 @@
     "use_black": "y",
     "use_mypy": "y",
     "use_yamllint": "n",
-    "use_pydocstringformatter": "y",
     "use_isort": "y",
     "use_docformatter": "y",
     "use_bandit": "y",
