@@ -7,7 +7,7 @@ This template is a work in progress. Please create an issue if you find somethin
 ## Features
 
 Main features include:
-  - [`Poetry`](https://github.com/python-poetry/poetry): Dependency management and packaging.
+   [`Poetry`](https://github.com/python-poetry/poetry): Dependency management and packaging.
   - [`pytest`](https://github.com/pytest-dev/pytest): Unit and coverage testing.
   - [`flake8`](https://github.com/PyCQA/flake8) and [`pylint`](https://github.com/PyCQA/pylint): Python style checks.
   - [`black`](https://github.com/psf/black): Auto-formatted code.
@@ -19,7 +19,7 @@ Main features include:
   - [`mkdocstrings-python`](https://github.com/mkdocstrings/python): Wrapping [`mkdocstrings`](https://github.com/mkdocstrings/mkdocstrings) for automatic API documentation from sources.
   - [`GitHub Actions`](https://github.com/features/actions): Automated CI checks, auto-release to PyPi, with automated automated version bumping when publishing.
   - [`ipykernel`](https://github.com/ipython/ipykernel): (Optional) Tooling set up for use of virtual environment as kernel in [Jupyter](https://jupyter.org/) notebooks, creates convenience directories, and a template `*.ipynb`.
-  - [`logging`](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial): Set up out of the box for library and app usage. See [][##Opinions] for more. Only uses default Python `logging` library.
+  - [`logging`](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial): Set up out of the box for library and app usage. See *Opinions* for more. Only uses default Python `logging` library.
   - [`click`](https://palletsprojects.com/p/click/) and `Argparse`: (Optional) CLI for your app.
   - `src` layout: See [why](https://py-pkgs.org/04-package-structure.html#the-source-layout).
   - Template for new Python source files.
@@ -69,10 +69,11 @@ This guide assumes `pyenv`, `pipx` and `poetry` are installed. Only `poetry` is 
 Install the latest Cookiecutter if you haven't installed it yet (`Cookiecutter 1.4.0` or higher is required):
 
 ```shell
-$ pipx install cookiecutter>=1.4.0
+$ pipx install cookiecutter
+$ cookiecutter --version
 ```
 
-`cd` into the directory that houses all of your projects. Bake the new project from the template and make your selections, see [][## Options]. 
+`cd` into the directory that houses all of your projects. Bake the new project from the template and make your selections, see *Options* to see what effect your choices will have. 
 
 ```shell
 $ cookiecutter https://github.com/smp4/cookiecutter-poetry-pypackage.git
