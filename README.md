@@ -113,6 +113,13 @@ $ make dev_install
 $ make clean  # etc...
 ```
 
+To check that the environment was installed as expected:
+
+```shell
+$ poetry env list
+$ poetry env info
+```
+
 ### More GitHub Setup
 
 #### Set up Branches
@@ -228,6 +235,7 @@ This assumes you use `Poetry` to manage your environment and dependencies. Assum
 
 ```bash
 $ poetry add your_package
+$ poetry install
 ```
  
 For adding from other locations (GitHub repos, including with ssh, or local directories), see [`Poetry` docs](https://python-poetry.org/docs/cli/#add). 
@@ -236,6 +244,7 @@ Note, for a private GitHub repo, you may need to add `#main` to the end of the `
 
 ```bash
 $ poetry add git+ssh://git@github.com:usr/package_name.git#main
+$ poetry install
 ```
 
 See also adding dependencies for `Poetry` in the [`Poetry` docs](https://python-poetry.org/docs/dependency-specification/).
