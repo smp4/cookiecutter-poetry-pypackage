@@ -143,6 +143,3 @@ dmypy.json
 # vim
 *.swp
 *.swo
-
-# custom Python source file template
-pysource_template.py

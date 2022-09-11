@@ -4,7 +4,7 @@
 # Contact: {{cookiecutter.email}}
 # See the LICENSE file distributed with this software.
 
-"""Entry point module for `python -m{{cookiecutter.project_slug}}`.
+"""Entry point module for `python -m {{cookiecutter.project_slug}}`.
 
 Why does this file exist, and why not put this in __main__?
 
