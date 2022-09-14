@@ -110,15 +110,12 @@ pyenv local 3.10.6
 Now initialise everything with the makefile. This will install the template project with `poetry` and run a first check of all the code.
 
 ```shell
-$ make
-```
-
-If you would rather do all this manually, then look at the `Makefile` and copy the commands out into the terminal one by one yourself. To run a specific command (target) in the Makefile:
-
-```shell
 $ make dev_install
-$ make clean  # etc...
+$ make clean  
+$ make checks
 ```
+
+If you would rather do all this manually, look at the `Makefile` and copy the commands out into the terminal one by one yourself. 
 
 To check that the environment was installed as expected:
 

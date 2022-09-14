@@ -88,48 +88,42 @@ ipykernel = "*"{%- endif %}
 {{cookiecutter.project_slug}} = "{{cookiecutter.project_slug}}.cli:main"
 
 
-{%- if cookiecutter.use_black == 'y' %}
+{% if cookiecutter.use_black == 'y' %}
 [tool.black]
 line-length=100
-{%- endif %}
+{% endif %}
 
-
-{%- if cookiecutter.use_pylint == 'y' %}
+{% if cookiecutter.use_pylint == 'y' %}
 [tool.pylint.reports]
 output-format="colorized"
 reports="y"
 include-ids="yes"
 msg-template="{msg_id}:{line:3d},{column}: {obj}: {msg}"
-{%- endif %}
+{% endif %}
 
-
-{%- if cookiecutter.use_isort == 'y' %}
+{% if cookiecutter.use_isort == 'y' %}
 [tool.isort]
 profile = "black"
 skip_gitignore = "true"
 src_paths = ["src", "tests"]
-{%- endif %}
+{% endif %}
 
-
-
-{%- if cookiecutter.use_docformatter == 'y' -%}
+{% if cookiecutter.use_docformatter == 'y' -%}
 [tool.docformatter]
 syntax = "google"
 black = true
 recursive = true
 wrap-summaries = 88
 blank = true
-{%- endif %}
-
+{% endif %}
 
 {% if cookiecutter.use_pytest == 'y' -%}
 [tool.pytest.ini_options]
 addopts = "--cov=src --cov-branch --cov-report term-missing  -vv --color=yes --cov-fail-under 100 --html=build/report.html --self-contained-html"
 python_files = "tests.py test_*.py *_tests.py"
-{%- endif %}
+{% endif %}
 
-
-{%- if cookiecutter.use_mypy == 'y' %}
+{% if cookiecutter.use_mypy == 'y' %}
 [tool.mypy]
 max-line-length = 100
 exclude = [
@@ -146,7 +140,7 @@ exclude = [
 max-complexity = 10
 import-order-style = 'google'
 application-import-names = '{{ cookiecutter.project_slug }}'
-{%- endif %}
+{% endif %}
 
 
 [build-system]

@@ -119,7 +119,7 @@ checks-bandit:
 {%- endif %}
 
 ## Code quality checks
-checks: {%- if cookiecutter.use_black == 'y' %}checks-black{%- endif %} {%- if cookiecutter.use_isort == 'y' %}checks-isort{%- endif %} {%- if cookiecutter.use_docformatter == 'y' %}checks-docformatter{%- endif %} {%- if cookiecutter.use_mypy == 'y' %}checks-mypy{%- endif %} {%- if cookiecutter.use_pylint == 'y' %}checks-pylint{%- endif %}	{%- if cookiecutter.use_yamllint == 'y' %}checks-yamllint{%- endif %}	{%- if cookiecutter.use_flake8 == 'y' %}checks-flake8{%- endif %}	{%- if cookiecutter.use_bandit == 'y' %}checks-bandit{%- endif %}
+checks: {% if cookiecutter.use_black == 'y' %}checks-black{% endif %} {% if cookiecutter.use_isort == 'y' %}checks-isort{% endif %} {% if cookiecutter.use_docformatter == 'y' %}checks-docformatter{% endif %} {% if cookiecutter.use_mypy == 'y' %}checks-mypy{% endif %} {% if cookiecutter.use_pylint == 'y' %}checks-pylint{% endif %}	{% if cookiecutter.use_yamllint == 'y' %}checks-yamllint{% endif %}	{% if cookiecutter.use_flake8 == 'y' %}checks-flake8{% endif %}	{% if cookiecutter.use_bandit == 'y' %}checks-bandit{% endif %}
 
 ### Run tests quickly. Extra params in pyproject.toml.
 test:
