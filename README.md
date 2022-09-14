@@ -100,15 +100,20 @@ $ git push -u origin main
 ```
 
 ### Initialise the Project
-Now initialise everything with the makefile. This will set up the local python version with `pyenv`, install the template with `poetry`, make a first push to GitHub and run a first check of all the code.
+Optionally, set up a local python version with `pyenv`. Remember which version of python you specified when you baked the cookie! For example -
 
-If you would rather do all this manually, then look at the `Makefile` and copy the commands out into the terminal one by one yourself.
+```shell
+pyenv install 3:latest  # 3.10.6
+pyenv local 3.10.6
+```
+
+Now initialise everything with the makefile. This will install the template project with `poetry` and run a first check of all the code.
 
 ```shell
 $ make
 ```
 
-To run a specific command (target) in the Makefile:
+If you would rather do all this manually, then look at the `Makefile` and copy the commands out into the terminal one by one yourself. To run a specific command (target) in the Makefile:
 
 ```shell
 $ make dev_install
@@ -460,6 +465,9 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 * Automatic version bumping, [Semantic Versioning](https://semver.org/), development cycle and changelog (see [keepachangelog](https://keepachangelog.com/en/1.0.0/)):
     * Possible tool - [gitchangelog](https://github.com/vaab/gitchangelog#incremental-changelog#)
     * Mimic [Python Development Guide](https://devguide.python.org/developer-workflow/development-cycle/#devcycle).
+* review: https://blog.wolt.com/engineering/2022/08/11/project-template-for-modern-python-packages/
+
+
 
 ## Credits
 

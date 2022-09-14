@@ -27,11 +27,10 @@ PROJECT_NAME = {{ cookiecutter.project_slug }}
 
 ## Install the required python interpreter and project dependencies into editable mode
 dev_install: pyproject.toml
-	pyenv install {{ cookiecutter.python_version }}
-	pyenv local {{ cookiecutter.python_version }}
 	pipx install poetry
 	poetry install
-	poetry info
+	poetry env info
+	poetry env list
 
 
 ## Delete all compiled Python files, build, test and coverage artifacts
@@ -61,7 +60,7 @@ clean-test:
 	rm -fr htmlcov/
 	rm -fr .pytest_cache
 
-## Autoformatters should run first, then style check to verify autoformtters. Then type checks and linters.
+## Autoformatters should run first, then style check to verify autoformatters. Then type checks and linters.
 
 ## Check format with black
 {%- if cookiecutter.use_black == 'y' %}

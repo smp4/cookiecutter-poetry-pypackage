@@ -47,7 +47,7 @@ click = "*"{% endif %}
 [tool.poetry.dev-dependencies]
 # Documentation
 mkdocs-material = "*"
-mkdocstrings[python] = "*"
+mkdocstrings = "*"
 
 # Testing
 {%- if cookiecutter.use_pytest == 'y' %}
@@ -109,6 +109,7 @@ profile = "black"
 skip_gitignore = "true"
 src_paths = ["src", "tests"]
 {%- endif %}
+
 
 
 {%- if cookiecutter.use_docformatter == 'y' -%}
