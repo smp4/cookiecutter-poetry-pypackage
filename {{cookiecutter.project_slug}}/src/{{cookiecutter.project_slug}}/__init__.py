@@ -8,6 +8,7 @@
 
 Modules exported by this package:
     - `module1`: Short description of the module.
+
 """
 
 import logging

@@ -11,16 +11,16 @@ Why does this file exist, and why __main__? For more info, read:
 - https://www.python.org/dev/peps/pep-0338/
 - https://docs.python.org/2/using/cmdline.html#cmdoption-m
 - https://docs.python.org/3/using/cmdline.html#cmdoption-m
+
 """
 
-import sys
 import logging
+import sys
 from pathlib import Path
+
 from dotenv import find_dotenv, load_dotenv
 
-from . import logsetup
-from . import cli
-
+from . import cli, logsetup
 
 if __name__ == "__main__":
     try:
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         try:
             x = 1 / 0
         except ZeroDivisionError as e:
-            log.exception('ZeroDivisionError: %s', e)
+            log.exception("ZeroDivisionError: %s", e)
 
         # not used in this stub but often useful for finding various files
         project_dir = Path(__file__).resolve().parents[2]
@@ -51,10 +51,10 @@ if __name__ == "__main__":
         load_dotenv(find_dotenv())
 
         {% if ( cookiecutter.command_line_interface|lower == 'click' or
-               cookiecutter.command_line_interface|lower == 'argparse' ) %}
+               cookiecutter.command_line_interface|lower == 'argparse' ) -%}
         cli.main()
         {% else %}
         sys.exit(cli.main())  # pragma: no cover
-        {% endif %}
-    except Exception
+        {%- endif %}
+    except Exception:
         log.exception("Fatal error in main loop.")

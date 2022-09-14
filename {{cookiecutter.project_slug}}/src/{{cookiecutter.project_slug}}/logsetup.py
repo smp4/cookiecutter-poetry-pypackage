@@ -30,7 +30,9 @@ format_str = (
 class ColouredFormatter(logging.Formatter):
     """Custom formatter providing coloured output to console.
 
-    Also converts message time to UTC and prints exceptions as a single line.
+    Also converts message time to UTC and prints exceptions as a single
+    line.
+
     """
 
     logging.Formatter.converter = time.gmtime
@@ -67,7 +69,11 @@ class ColouredFormatter(logging.Formatter):
 
 
 class plainFormatter(logging.Formatter):
-    """Plain formatting, no colour. Converts message time to UTC."""
+    """Plain formatting, no colour.
+
+    Plain formatting, no colour. Also converts message time to UTC.
+
+    """
 
     logging.Formatter.converter = time.gmtime
 
@@ -107,6 +113,7 @@ def default_log_config(log: logging.Logger, default_level: int = logging.DEBUG) 
         default_level: The minimum message level that the logger should process.
     Returns:
         None
+
     """
 
     stdout_hdlr = StreamHandler(sys.stdout)
@@ -166,6 +173,7 @@ def setup_logging(
     Expected usage:
         Assuming `{{cookiecutter.project_slug}}` has been installed,
         `LOG_CFG=/path/to/my_logging.yml python {{cookiecutter.project_slug}}`
+
     """
 
     path = default_path

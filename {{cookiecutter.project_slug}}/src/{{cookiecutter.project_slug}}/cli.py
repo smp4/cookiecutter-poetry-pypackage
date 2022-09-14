@@ -24,24 +24,25 @@ file.
 Examples:
     >>> python -m {{ cookiecutter.project_slug }}
     >>> poetry shell && {{ cookiecutter.project_slug }}
+
 """
 
-{%- if cookiecutter.command_line_interface|lower == 'click' %}
+import logging
+import sys
+{% if cookiecutter.command_line_interface|lower == 'click' %}
 import click
 {%- elif cookiecutter.command_line_interface|lower == 'argparse' %}
 import argparse
 {%- endif %}
-import sys, logging
-
 
 logger = logging.getLogger(__name__)
 
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
-@click.argument('names', nargs=-1)
+@click.argument("names", nargs=-1)
 def main(names):
     """Console script for {{cookiecutter.project_slug}}."""
-    logger.debug('Using Click.')
+    logger.debug("Using Click.")
 
     click.echo("{{ cookiecutter.project_slug }}")
     click.echo("=" * len("{{ cookiecutter.project_slug }}"))
@@ -53,7 +54,7 @@ def main(names):
 {%- elif cookiecutter.command_line_interface|lower == 'argparse' %}
 def main():
     """Console script for {{cookiecutter.project_slug}}."""
-    logger.debug('Using Argparse.')
+    logger.debug("Using Argparse.")
 
     parser = argparse.ArgumentParser()
     parser.add_argument('_', nargs='*')

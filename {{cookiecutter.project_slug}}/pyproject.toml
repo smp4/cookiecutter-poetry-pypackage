@@ -125,7 +125,6 @@ python_files = "tests.py test_*.py *_tests.py"
 
 {% if cookiecutter.use_mypy == 'y' %}
 [tool.mypy]
-max-line-length = 100
 exclude = [
     '.git',
     'docs',
@@ -137,9 +136,15 @@ exclude = [
     '.cache',
     '.eggs'
 ]
-max-complexity = 10
-import-order-style = 'google'
-application-import-names = '{{ cookiecutter.project_slug }}'
+disallow_any_unimported = true  # from wolt cookiecutter
+disallow_untyped_defs = true
+no_implicit_optional = true
+strict_equality = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
+check_untyped_defs = true
+show_error_codes = true
 {% endif %}
 
 

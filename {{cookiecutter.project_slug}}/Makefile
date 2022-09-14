@@ -66,7 +66,7 @@ clean-test:
 {%- if cookiecutter.use_black == 'y' %}
 .PHONY: checks-black
 checks-black:
-	poetry run black --check src tests
+	poetry run black --diff --check src tests
 {%- endif %}
 
 ## Auto-sort imports
