@@ -7,7 +7,8 @@ This template is a work in progress. Please create an issue if you find somethin
 ## Features
 
 Main features include:
-   [`Poetry`](https://github.com/python-poetry/poetry): Dependency management and packaging.
+  - [`cruft`](https://cruft.github.io/cruft/) to keep you up to date with this template. 
+  - [`Poetry`](https://github.com/python-poetry/poetry): Dependency management and packaging.
   - [`pytest`](https://github.com/pytest-dev/pytest): Unit and coverage testing.
   - [`flake8`](https://github.com/PyCQA/flake8) and [`pylint`](https://github.com/PyCQA/pylint): Python style checks.
   - [`black`](https://github.com/psf/black): Auto-formatted code.
@@ -68,7 +69,7 @@ This guide assumes `pyenv`, `pipx` and `poetry` are installed. Only `poetry` is 
 Install the latest Cookiecutter if you haven't installed it yet (`Cookiecutter 1.4.0` or higher is required):
 
 ```shell
-$ pipx install cookiecutter
+$ pipx install cookiecutter 
 $ cookiecutter --version
 ```
 
@@ -77,6 +78,26 @@ $ cookiecutter --version
 ```shell
 $ cookiecutter https://github.com/smp4/cookiecutter-poetry-pypackage.git
 ```
+
+#### Optional: Baking with Cruft
+`Cruft` helps you keep your project boilerplate up to date by syncing your project with updates to the originating cookiecutter template repository. It uses `cookiecutter` templates just the same as `cookecutter`.
+
+`Cruft` is not in the project dev dependencies, since it is optional. Instead, install it to your system with `pipx`, then bake the cookie:
+
+```shell
+$ pipx install cruft
+$ cruft create https://github.com/smp4/cookiecutter-poetry-pypackage.git
+```
+
+A default `Cruft` configuration is in `pyproject.toml` just in case you want to use it.
+
+At any time in your project development, you can check to see if your boilerplate is up to date with the latest template. In the root of the project, run:
+
+```shell
+$ cruft check
+$ cruft update
+```
+
 
 ### Remote Git Repo Initialisation
 Create the remote repository on GitHub [creating a new repository](https://github.com/new) on GitHub. Leave all boxes unchecked in the *New Repository* dialogue. 
