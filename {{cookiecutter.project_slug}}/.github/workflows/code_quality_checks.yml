@@ -13,11 +13,11 @@ jobs:
     runs-on: ubuntu-latest
 
 
-# should do autoformatters first, then style check, then type check, then linter
-# ideally only do checks on the commit. not actual changes. do this locally.
+    # should do autoformatters first, then style check, then type check, then linter
+    # ideally only do checks on the commit. not actual changes. do this locally.
     steps:
       - uses: actions/checkout@v3
-        #      - name: Set up Python 3.10
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
           python-version: {{ cookiecutter.python_version }}
@@ -34,7 +34,7 @@ jobs:
         run: poetry run isort --profile="black" src/ tests/ --check-only --diff
       {%- endif %}
       {% if cookiecutter.use_docformatter == 'y' -%}
-        -name: Check docstrings are Google style with docformatter
+      - name: Check docstrings are Google style with docformatter
         run: poetry run docformatter --syntax="google" --check --recursive --black=True src/ tests/
       {%- endif %}
       {% if cookiecutter.use_mypy == 'y' -%}

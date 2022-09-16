@@ -4,7 +4,8 @@
 # Contact: {{cookiecutter.email}}
 # See the LICENSE file distributed with this software.
 
-"""Sets up logging to stdout, stderr for the package when run as an app."""
+"""Sets up logging to stdout, stderr for the package when run as an
+app."""
 
 import logging
 import logging.config
@@ -18,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 
 # default format string of a log message
-format_str = (
+FORMAT_STR = (
     "%(asctime)UTC|PID"
     "%(process)d|%(processName)s|%(name)s|%(levelname)s|%(message)s"
     "(%(filename)s:%(lineno)d)"
@@ -46,29 +47,32 @@ class ColouredFormatter(logging.Formatter):
     reset = "\x1b[0m"
 
     FORMATS = {
-        logging.DEBUG: white + format_str + reset,
-        logging.INFO: green + format_str + reset,
-        logging.WARNING: yellow + format_str + reset,
-        logging.ERROR: red + format_str + reset,
-        logging.CRITICAL: bold_red + format_str + reset,
+        logging.DEBUG: white + FORMAT_STR + reset,
+        logging.INFO: green + FORMAT_STR + reset,
+        logging.WARNING: yellow + FORMAT_STR + reset,
+        logging.ERROR: red + FORMAT_STR + reset,
+        logging.CRITICAL: bold_red + FORMAT_STR + reset,
     }
 
-    def formatException(self, exc_info: logging._SysExcInfoType ) -> str:
+    def formatException(
+        self, exc_info: logging._SysExcInfoType  # pylint: disable=no-member
+    ) -> str:
         """Format an exception so that it prints on a single line."""
         result = super().formatException(exc_info)
         return repr(result)  # or format into one line however you want to
 
     def format(self, record: logging.LogRecord) -> str:
-        """Reformat exception as single line and apply colouring format."""
+        """Reformat exception as single line and apply colouring
+        format."""
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
-        s = formatter.format(record)
+        out_str = formatter.format(record)
         if record.exc_text:
-            s = s.replace("\n", "") + "|"
-        return s
+            out_str = out_str.replace("\n", "") + "|"
+        return out_str
 
 
-class plainFormatter(logging.Formatter):
+class PlainFormatter(logging.Formatter):
     """Plain formatting, no colour.
 
     Plain formatting, no colour. Also converts message time to UTC.
@@ -79,16 +83,17 @@ class plainFormatter(logging.Formatter):
 
     def format(self, record: logging.LogRecord) -> str:
         """Apply UTC and format string."""
-        formatter = logging.Formatter(format_str)
+        formatter = logging.Formatter(FORMAT_STR)
         return formatter.format(record)
 
 
 # https://stackoverflow.com/questions/1383254/logging-streamhandler-and-standard-streams
-class MaxLevelFilter(logging.Filter):
+class MaxLevelFilter(logging.Filter):  # pylint: disable=too-few-public-methods
     """Filters (lets through) all messages with level < LEVEL."""
 
     def __init__(self, level: int) -> None:
         """Set the debug level at initialisation."""
+        super().__init__("")
         self.level = level
 
     def filter(self, record: logging.LogRecord) -> bool:
@@ -98,7 +103,9 @@ class MaxLevelFilter(logging.Filter):
         )  # "<" instead of "<=": since logger.setLevel is inclusive, this should be exclusive
 
 
-def default_log_config(log: logging.Logger, default_level: int = logging.DEBUG) -> None:
+def default_log_config(
+    log: logging.Logger, default_level: int = logging.DEBUG
+) -> None:
     """Applies the default log configuration.
 
     DEBUG and INFO logs to stdout, WARNING and higher to stderr. By default
@@ -118,7 +125,7 @@ def default_log_config(log: logging.Logger, default_level: int = logging.DEBUG) 
 
     stdout_hdlr = logging.StreamHandler(sys.stdout)
     stderr_hdlr = logging.StreamHandler(sys.stderr)
-    lower_than_warning = MaxLevelFilter(logging.WARNING)
+    lower_than_warning = MaxLevelFilter(level=logging.WARNING)
     stdout_hdlr.addFilter(lower_than_warning)
 
     stdout_hdlr.setLevel(logging.DEBUG)  # messages < WARNING go to stdout
@@ -139,8 +146,8 @@ def default_log_config(log: logging.Logger, default_level: int = logging.DEBUG) 
         stdout_hdlr.setFormatter(ColouredFormatter())
         stderr_hdlr.setFormatter(ColouredFormatter())
     else:
-        stdout_hdlr.setFormatter(plainFormatter())
-        stderr_hdlr.setFormatter(plainFormatter())
+        stdout_hdlr.setFormatter(PlainFormatter())
+        stderr_hdlr.setFormatter(PlainFormatter())
 
 
 #    stream_handler = logging.StreamHandler()
@@ -182,8 +189,8 @@ def setup_logging(
         path = value
     if os.path.exists(path):
         logger.debug("path exists")
-        with open(path, "rt") as f:
-            config = yaml.safe_load(f.read())
+        with open(path, "rt", encoding="utf-8") as file:
+            config = yaml.safe_load(file.read())
             try:
                 logging.config.dictConfig(config)
                 logger.debug("Logging configured from file.")

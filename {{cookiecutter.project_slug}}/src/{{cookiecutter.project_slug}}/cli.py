@@ -28,7 +28,12 @@ Examples:
 """
 
 import logging
+{%- if cookiecutter.command_line_interface|lower != 'click' or
+ cookiecutter.command_line_interface|lower != 'argparse' %}
 import sys
+{%- endif %}
+from typing import Optional, Sequence
+
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 import click
 {%- elif cookiecutter.command_line_interface|lower == 'argparse' %}
@@ -40,7 +45,7 @@ logger = logging.getLogger(__name__)
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
 @click.argument("names", nargs=-1)
-def main(names: list[str]) -> int:
+def main(names: Optional[Sequence[str]] = Non = None) -> int:
     """Console script for {{cookiecutter.project_slug}}."""
     logger.debug("Using Click.")
 

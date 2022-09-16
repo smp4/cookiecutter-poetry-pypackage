@@ -29,7 +29,7 @@ plugins:
 # Extensions
 markdown_extensions:
   - toc:
-      permalink: True
+      permalink: true
 
 # Footer
 extra:
@@ -43,16 +43,15 @@ nav:
   - Introduction: index.md
   - Installation: installation.md
   - Quick Start: quickstart.md
-  - Tutorials: tutorials.md  
+  - Tutorials: tutorials.md
   - Advanced:
-    - How Tos: advanced/howtos.md
-    - Explanation: advanced/explanation.md
+      - How Tos: advanced/howtos.md
+      - Explanation: advanced/explanation.md
   - API Reference: api.md
   - About:
-    - Release Notes: about/changelog.md
-    - Contributor Guide: about/contributing.md
-    - License: about/license.md
-{%- if cookiecutter.create_author_file == 'y' %}      
-    - Authors: about/authors.md
-{%- endif %}      
+      - Release Notes: about/changelog.md
+      - Contributor Guide: about/contributing.md
+      - License: about/license.md
+{%- if cookiecutter.create_author_file == 'y' %}
+      - Authors: about/authors.md {%- endif %}
   - Glossary: glossary.md

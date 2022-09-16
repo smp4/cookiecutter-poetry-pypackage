@@ -98,14 +98,13 @@ ipykernel = "*"{%- endif %}
 
 {% if cookiecutter.use_black == 'y' %}
 [tool.black]
-line-length=100
+line-length=79
 {% endif %}
 
 {% if cookiecutter.use_pylint == 'y' %}
 [tool.pylint.reports]
 output-format="colorized"
 reports="y"
-include-ids="yes"
 msg-template="{msg_id}:{line:3d},{column}: {obj}: {msg}"
 {% endif %}
 
@@ -121,7 +120,7 @@ src_paths = ["src", "tests"]
 syntax = "google"
 black = true
 recursive = true
-wrap-summaries = 88
+wrap-summaries = 72
 blank = true
 {% endif %}
 

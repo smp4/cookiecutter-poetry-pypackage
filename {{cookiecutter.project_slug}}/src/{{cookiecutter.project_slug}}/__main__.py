@@ -15,7 +15,10 @@ Why does this file exist, and why __main__? For more info, read:
 """
 
 import logging
+{%- if ( cookiecutter.command_line_interface|lower != 'click' or
+        cookiecutter.command_line_interface|lower != 'argparse' ) -%}
 import sys
+{%- endif %}
 from pathlib import Path
 
 from dotenv import find_dotenv, load_dotenv
@@ -56,5 +59,5 @@ if __name__ == "__main__":
         {% else %}
         sys.exit(cli.main())  # pragma: no cover
         {%- endif %}
-    except Exception:
+    except Exception:  # pylint: disable=broad-except
         log.exception("Fatal error in main loop.")

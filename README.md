@@ -485,7 +485,7 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
     * Mimic [Python Development Guide](https://devguide.python.org/developer-workflow/development-cycle/#devcycle).
 * review: https://blog.wolt.com/engineering/2022/08/11/project-template-for-modern-python-packages/
 * implement features to protect against supply chain attacks: import typos
-
+* badges, https://pylint.pycqa.org/en/latest/user_guide/installation/badge.html
 
 ## Credits
 
