@@ -10,7 +10,7 @@ Main features include:
   - [`cruft`](https://cruft.github.io/cruft/) to keep you up to date with this template. 
   - [`Poetry`](https://github.com/python-poetry/poetry): Dependency management and packaging.
   - [`pytest`](https://github.com/pytest-dev/pytest): Unit and coverage testing.
-  - [`flake8`](https://github.com/PyCQA/flake8) and [`pylint`](https://github.com/PyCQA/pylint): Python style checks.
+  - [`flake8`](https://github.com/PyCQA/flake8) and [`pylint`](https://github.com/PyCQA/pylint): Python style checks, with a bunch of plugins, including `tryceratops`.
   - [`black`](https://github.com/psf/black): Auto-formatted code.
   - [`docformatter`](https://docformatter.readthedocs.io/en/latest/index.html): Autoformat your docstrings (defaults to Google style).
   - [`isort`](https://pycqa.github.io/isort/): Sort your imports.
