@@ -66,6 +66,7 @@ flake8-comprehensions = "*"
 flake8-debugger = "*"
 flake8-eradicate = "*"
 flake8-logging-format = "*"
+tryceratops = "*"
 {%- endif %}
 {%- if cookiecutter.use_pylint == 'y' %}
 pylint = "*"{%- endif %}
