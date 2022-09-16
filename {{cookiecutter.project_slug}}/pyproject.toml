@@ -60,6 +60,12 @@ pytest-cov = "*"{%- endif %}
 flake8 = "*"
 flake8-docstrings = "*"
 flake8-import-order = "*"
+flake8-bugbear = "*"
+flake8-builtins = "*"
+flake8-comprehensions = "*"
+flake8-debugger = "*"
+flake8-eradicate = "*"
+flake8-logging-format = "*"
 {%- endif %}
 {%- if cookiecutter.use_pylint == 'y' %}
 pylint = "*"{%- endif %}
@@ -125,18 +131,7 @@ python_files = "tests.py test_*.py *_tests.py"
 
 {% if cookiecutter.use_mypy == 'y' %}
 [tool.mypy]
-exclude = [
-    '.git',
-    'docs',
-    'node_modules',
-    '__pycache__',
-    'build',
-    '*.pyc',
-    '*.egg-info',
-    '.cache',
-    '.eggs'
-]
-disallow_any_unimported = true  # from wolt cookiecutter
+disallow_any_unimported = true  # see https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/ 
 disallow_untyped_defs = true
 no_implicit_optional = true
 strict_equality = true

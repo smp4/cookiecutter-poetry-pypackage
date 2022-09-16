@@ -109,6 +109,11 @@ Run {{cookiecutter.project_name}} from source tree:
 $ poetry run python -m {{cookiecutter.project_slug}}
 ```
 
+Keeping the boilerplate up to date with the original [cookiecutter template]():
+
+```shell
+$ 
+
 ## Credits
 
 This package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter).
