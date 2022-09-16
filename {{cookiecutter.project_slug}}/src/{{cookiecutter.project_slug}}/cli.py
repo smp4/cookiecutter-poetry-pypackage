@@ -40,7 +40,7 @@ logger = logging.getLogger(__name__)
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
 @click.argument("names", nargs=-1)
-def main(names):
+def main(names: list[str]) -> int:
     """Console script for {{cookiecutter.project_slug}}."""
     logger.debug("Using Click.")
 
@@ -52,7 +52,7 @@ def main(names):
     return 0
 
 {%- elif cookiecutter.command_line_interface|lower == 'argparse' %}
-def main():
+def main() -> int:
     """Console script for {{cookiecutter.project_slug}}."""
     logger.debug("Using Argparse.")
 
@@ -66,7 +66,7 @@ def main():
     return 0
 
 {%- else %}
-def main(argv=sys.argv):
+def main(argv=sys.argv) -> int:
     """
     Args:
         argv (list): List of arguments

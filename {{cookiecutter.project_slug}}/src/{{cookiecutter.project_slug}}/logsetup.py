@@ -53,12 +53,12 @@ class ColouredFormatter(logging.Formatter):
         logging.CRITICAL: bold_red + format_str + reset,
     }
 
-    def formatException(self, exc_info):
+    def formatException(self, exc_info: logging._SysExcInfoType ) -> str:
         """Format an exception so that it prints on a single line."""
         result = super().formatException(exc_info)
         return repr(result)  # or format into one line however you want to
 
-    def format(self, record):
+    def format(self, record: logging.LogRecord) -> str:
         """Reformat exception as single line and apply colouring format."""
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
@@ -77,21 +77,21 @@ class plainFormatter(logging.Formatter):
 
     logging.Formatter.converter = time.gmtime
 
-    def format(self, record):
+    def format(self, record: logging.LogRecord) -> str:
         """Apply UTC and format string."""
         formatter = logging.Formatter(format_str)
         return formatter.format(record)
 
 
 # https://stackoverflow.com/questions/1383254/logging-streamhandler-and-standard-streams
-class MaxLevelFilter(Filter):
+class MaxLevelFilter(logging.Filter):
     """Filters (lets through) all messages with level < LEVEL."""
 
-    def __init__(self, level):
+    def __init__(self, level: int) -> None:
         """Set the debug level at initialisation."""
         self.level = level
 
-    def filter(self, record):
+    def filter(self, record: logging.LogRecord) -> bool:
         """Allow messages with level < LEVEL."""
         return (
             record.levelno < self.level
@@ -116,13 +116,13 @@ def default_log_config(log: logging.Logger, default_level: int = logging.DEBUG) 
 
     """
 
-    stdout_hdlr = StreamHandler(sys.stdout)
-    stderr_hdlr = StreamHandler(sys.stderr)
+    stdout_hdlr = logging.StreamHandler(sys.stdout)
+    stderr_hdlr = logging.StreamHandler(sys.stderr)
     lower_than_warning = MaxLevelFilter(logging.WARNING)
     stdout_hdlr.addFilter(lower_than_warning)
 
-    stdout_hdlr.setLevel(DEBUG)  # messages < WARNING go to stdout
-    stderr_hdlr.setLevel(WARNING)  # messages >= WARNING go to stderr
+    stdout_hdlr.setLevel(logging.DEBUG)  # messages < WARNING go to stdout
+    stderr_hdlr.setLevel(logging.WARNING)  # messages >= WARNING go to stderr
 
     log.addHandler(stdout_hdlr)
     log.addHandler(stderr_hdlr)
@@ -189,7 +189,8 @@ def setup_logging(
                 logger.debug("Logging configured from file.")
             except (ValueError, KeyError) as err:
                 logger.error(
-                    "Unable to load the configuration from file, contain" / "configuration error."
+                    ("Unable to load the configuration from file, contain "
+                     "configuration error.")
                 )
                 # When there is an error in the config, escalate the exception,
                 # otherwise the application would silently fall back on the
@@ -201,7 +202,7 @@ def setup_logging(
             logger.debug("Logging configured from default.")
         except (ValueError, KeyError) as err:
             logger.error(
-                "Unable to load the default configuration from"
-                / "default_log_config, contains configuration error."
+                ("Unable to load the default configuration from "
+                 "default_log_config, contains configuration error.")
             )
             raise err

@@ -42,7 +42,8 @@ python = "^{{ cookiecutter.python_version }}"
 importlib_metadata = "*"
 {% if cookiecutter.command_line_interface|lower == 'click' -%}
 click = "*"{% endif %}
-
+types-PyYAML = "*"  # type hinting of logging config from yaml
+python-dotenv = "*"  # 12 factor app environment configuration
 
 [tool.poetry.dev-dependencies]
 # Documentation
