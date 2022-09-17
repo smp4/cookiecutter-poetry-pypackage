@@ -65,11 +65,13 @@ nav:
   - Introduction: index.md
   - Quick Start: quickstart.md
   - User Guide:
+      user-guide/index.md
      # - Overview: user-guide/index.md
       - Installation: user-guide/installation.md
       - Tutorials: user-guide/tutorials.md
       - How Tos: user-guide/howtos.md
   - Developer Guide:
+      - dev-guide/index.md
     # - Overview: dev-guide/index.md
       - Development: dev-guide/development.md
       - Explanation: dev-guide/explanation.md
