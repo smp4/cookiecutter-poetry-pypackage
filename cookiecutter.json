@@ -20,6 +20,5 @@
     "use_jupyter": "y",
     "command_line_interface": ["Click", "Argparse", "No command-line interface"],
     "use_pypi": "n",
-    "pypi_username": "{{ cookiecutter.github_username }}",
     "use_datascience": "y"
 }
