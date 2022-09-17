@@ -60,7 +60,7 @@ class ColouredFormatter(logging.Formatter):
         result = super().formatException(ei)
         return repr(result)  # or format into one line however you want to
 
-    def format(self, record: logging.LogRecord) -> str:
+    def format(self, record: logging.LogRecord) -> str:  # noqa: A003
         """Reformat exception as single line and apply colouring."""
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
@@ -79,7 +79,7 @@ class PlainFormatter(logging.Formatter):
 
     logging.Formatter.converter = time.gmtime
 
-    def format(self, record: logging.LogRecord) -> str:
+    def format(self, record: logging.LogRecord) -> str:  # noqa: A003
         """Apply UTC and format string."""
         formatter = logging.Formatter(FORMAT_STR)
         return formatter.format(record)
@@ -94,7 +94,7 @@ class MaxLevelFilter(logging.Filter):  # pylint: disable=too-few-public-methods
         super().__init__("")
         self.level = level
 
-    def filter(self, record: logging.LogRecord) -> bool:
+    def filter(self, record: logging.LogRecord) -> bool:  # noqa: A003
         """Allow messages with level < LEVEL."""
         return (
             record.levelno < self.level
