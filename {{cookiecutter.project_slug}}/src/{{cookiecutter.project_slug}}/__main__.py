@@ -15,7 +15,7 @@ Why does this file exist, and why __main__? For more info, read:
 """
 
 import logging
-{% if ( cookiecutter.command_line_interface|lower != 'click' ) or
+{% if ( cookiecutter.command_line_interface|lower != 'click' ) and
       (  cookiecutter.command_line_interface|lower != 'argparse' ) -%}
 import sys
 {%- endif %}
