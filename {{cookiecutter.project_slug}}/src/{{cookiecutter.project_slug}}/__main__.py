@@ -58,6 +58,6 @@ if __name__ == "__main__":
         cli.main()
         {% else -%}
         sys.exit(cli.main())  # pragma: no cover
-        {%- endif %}
+        {%- endif -%}
     except Exception:  # pylint: disable=broad-except
         log.exception("Fatal error in main loop.")
