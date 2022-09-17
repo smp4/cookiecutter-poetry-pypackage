@@ -28,7 +28,7 @@ from . import cli, logsetup
 if __name__ == "__main__":
     try:
         log = logging.getLogger(__name__)
-        logsetup.setup_logging(log=log, default_level=logging.DEBUG)
+        logsetup.setup_logging(default_level=logging.DEBUG)
         log.debug("Logging is set up and configured.")
 
         # test coloured logging

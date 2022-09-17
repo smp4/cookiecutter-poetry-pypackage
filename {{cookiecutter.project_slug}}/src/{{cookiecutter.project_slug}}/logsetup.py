@@ -101,9 +101,7 @@ class MaxLevelFilter(logging.Filter):  # pylint: disable=too-few-public-methods
         )  # "<" instead of "<=": since logger.setLevel is inclusive, this should be exclusive
 
 
-def default_log_config(
-    log: logging.Logger, default_level: int = logging.DEBUG
-) -> None:
+def default_log_config(default_level: int = logging.DEBUG) -> None:
     """Apply  the default log configuration.
 
     DEBUG and INFO logs to stdout, WARNING and higher to stderr. By default
@@ -128,10 +126,10 @@ def default_log_config(
     stdout_hdlr.setLevel(logging.DEBUG)  # messages < WARNING go to stdout
     stderr_hdlr.setLevel(logging.WARNING)  # messages >= WARNING go to stderr
 
-    rootLogger = logging.getLogger()
-    rootLogger.addHandler(stdout_hdlr)
-    rootLogger.addHandler(stderr_hdlr)
-    rootLogger.setLevel(default_level)
+    root_logger = logging.getLogger()
+    root_logger.addHandler(stdout_hdlr)
+    root_logger.addHandler(stderr_hdlr)
+    root_logger.setLevel(default_level)
 
     use_colours = True  # Set to False to use standard formatter with no colour
 
@@ -144,7 +142,6 @@ def default_log_config(
 
 
 def setup_logging(
-    log: logging.Logger,
     default_path: str = "resources/logging.yml",
     default_level: int = logging.DEBUG,
     env_key: str = "LOG_CFG",
@@ -194,7 +191,7 @@ def setup_logging(
                 raise
     else:
         try:
-            default_log_config(log, default_level)
+            default_log_config(default_level)
             logger.debug("Logging configured from default.")
         except (ValueError, KeyError):
             logger.exception(
