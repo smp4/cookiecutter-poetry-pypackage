@@ -46,11 +46,11 @@ nav:
   - Quick Start: quickstart.md
   - User Guide:
       - Overview: user-guide/index.md
-      - Installation: user_guide/installation.md
-      - Tutorials: user_guide/tutorials.md
-      - How Tos: user_guide/howtos.md
+      - Installation: user-guide/installation.md
+      - Tutorials: user-guide/tutorials.md
+      - How Tos: user-guide/howtos.md
   - Developer Guide:
-      - Overview: user-guide/index.md
+      - Overview: dev-guide/index.md
       - Development: dev-guide/development.md
       - Explanation: dev-guide/explanation.md
   - About:

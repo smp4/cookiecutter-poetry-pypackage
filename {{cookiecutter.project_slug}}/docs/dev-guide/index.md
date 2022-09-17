@@ -7,8 +7,8 @@ date: {% now 'local', '%Y-%m-%d' %}
 ---
 
 
-The [Development Guide](dev-guide/development.md) gives advanced used instructions on how to install {{cookiecutter.project_name}} in a local development environment including building the docs, checking the code and running tests.
+The [Development Guide](development.md) gives advanced used instructions on how to install {{cookiecutter.project_name}} in a local development environment including building the docs, checking the code and running tests.
 
-The [Explanation](dev-guide/explanation.md) tries to justify how and why {{cookiecutter.project_name}} does what it does.
+The [Explanation](explanation.md) tries to justify how and why {{cookiecutter.project_name}} does what it does.
 
-If you're interested in contributing, see the [Contributing Guide](about/contributing.md).
+If you're interested in contributing, see the [Contributing Guide](../about/contributing.md).

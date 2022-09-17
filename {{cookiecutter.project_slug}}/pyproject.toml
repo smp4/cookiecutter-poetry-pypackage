@@ -111,7 +111,7 @@ profile = "black"
 skip_gitignore = "true"
 src_paths = ["src", "tests"]{%- endif %}
 
-{% if cookiecutter.use_docformatter == 'y' -%}
+{% if cookiecutter.use_docformatter == 'y' %}
 [tool.docformatter]
 syntax = "google"
 black = true
@@ -119,7 +119,7 @@ recursive = true
 wrap-summaries = 72
 blank = true{%- endif %}
 
-{% if cookiecutter.use_pytest == 'y' -%}
+{% if cookiecutter.use_pytest == 'y' %}
 [tool.pytest.ini_options]
 addopts = "--cov=src --cov-branch --cov-report term-missing  -vv --color=yes --cov-fail-under 100 --html=build/report.html --self-contained-html"
 python_files = "tests.py test_*.py *_tests.py"{%- endif %}
@@ -137,7 +137,7 @@ check_untyped_defs = true
 show_error_codes = true
 pretty = true{%- endif %}
 
-{% if cookiecutter.use_bandit == 'y' -%}
+{% if cookiecutter.use_bandit == 'y' %}
 [tool.bandit]
 exclude_dirs = ["*/.venv/*"]
 

@@ -112,7 +112,6 @@ def default_log_config(default_level: int = logging.DEBUG) -> None:
     processed.
 
     Args:
-        log: The logger to be configured.
         default_level: The minimum message level that the logger should process.
     Returns:
         None
@@ -155,12 +154,11 @@ def setup_logging(
     LOG_CFG environment variable to load the logging configuration from a path.
 
     Args:
-        log:            The logger to be configured.
         default_path:   Location of the yaml logging configuration file.
         default_level:  Default logging level (ie. "logging.WARN"). Defaults to
-        DEBUG. These evaluate to integers.
+            DEBUG. These evaluate to integers.
         env_key:        Environment variable within which a custom path to the
-        logging config file can be stored.
+            logging config file can be stored.
 
     Expected usage:
         Assuming `{{cookiecutter.project_slug}}` has been installed,
