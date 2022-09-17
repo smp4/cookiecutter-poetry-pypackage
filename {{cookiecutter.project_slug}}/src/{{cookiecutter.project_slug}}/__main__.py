@@ -56,8 +56,8 @@ if __name__ == "__main__":
         {% if ( cookiecutter.command_line_interface|lower == 'click' or
                cookiecutter.command_line_interface|lower == 'argparse' ) -%}
         cli.main()
-        {% else -%}
+        {% else %}
         sys.exit(cli.main())  # pragma: no cover
-        {%- endif -%}
+        {%- endif %}
     except Exception:  # pylint: disable=broad-except
         log.exception("Fatal error in main loop.")
