@@ -21,8 +21,6 @@ theme:
     - navigation.instant
     - navigation.tabs
   language: en
-
-theme:
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
