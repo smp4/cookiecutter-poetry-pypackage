@@ -18,7 +18,6 @@
     "use_docformatter": "y",
     "use_bandit": "y",
     "use_jupyter": "y",
-    "jupyter_venvs_dir": "/dev/null",
     "command_line_interface": ["Click", "Argparse", "No command-line interface"],
     "use_pypi": "n",
     "pypi_username": "{{ cookiecutter.github_username }}",
