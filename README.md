@@ -499,6 +499,8 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
     * https://pre-commit.com/
 * fix logging to read a non-standard name and file location for user config file.
 * development flow guideline for developing on dev branch
+* add instruction how to delete jlab kernel if project/ venv is deleted
+
 
 ## Credits
 
