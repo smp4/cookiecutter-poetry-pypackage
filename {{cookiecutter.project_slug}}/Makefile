@@ -115,7 +115,7 @@ checks-flake8:
 {%- if cookiecutter.use_bandit == 'y' %}
 .PHONY: checks-bandit
 checks-bandit:
-	poetry run bandit -r .
+	poetry run bandit -c pyproject.toml -r .
 {%- endif %}
 
 ## Code quality checks

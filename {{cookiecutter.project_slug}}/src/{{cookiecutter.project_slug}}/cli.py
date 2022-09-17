@@ -44,6 +44,7 @@ logger = logging.getLogger(__name__)
 
 {% if cookiecutter.command_line_interface|lower == 'click' %}
 @click.command()
+@click.version_option()
 @click.argument("names", nargs=-1)
 def main(names: Optional[Sequence[str]] = Non = None) -> int:
     """Console script for {{cookiecutter.project_slug}}."""

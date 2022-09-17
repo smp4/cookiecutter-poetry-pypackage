@@ -4,8 +4,7 @@
 # Contact: {{cookiecutter.email}}
 # See the LICENSE file distributed with this software.
 
-"""Sets up logging to stdout, stderr for the package when run as an
-app."""
+"""Sets up logging to stdout, stderr when run as an app."""
 
 import logging
 import logging.config
@@ -62,8 +61,7 @@ class ColouredFormatter(logging.Formatter):
         return repr(result)  # or format into one line however you want to
 
     def format(self, record: logging.LogRecord) -> str:
-        """Reformat exception as single line and apply colouring
-        format."""
+        """Reformat exception as single line and apply colouring."""
         log_fmt = self.FORMATS.get(record.levelno)
         formatter = logging.Formatter(log_fmt)
         out_str = formatter.format(record)
@@ -106,7 +104,7 @@ class MaxLevelFilter(logging.Filter):  # pylint: disable=too-few-public-methods
 def default_log_config(
     log: logging.Logger, default_level: int = logging.DEBUG
 ) -> None:
-    """Applies the default log configuration.
+    """Apply  the default log configuration.
 
     DEBUG and INFO logs to stdout, WARNING and higher to stderr. By default
     colours the output for the terminal. Can be turned off in `logsetup.py` if
@@ -122,7 +120,6 @@ def default_log_config(
         None
 
     """
-
     stdout_hdlr = logging.StreamHandler(sys.stdout)
     stderr_hdlr = logging.StreamHandler(sys.stderr)
     lower_than_warning = MaxLevelFilter(level=logging.WARNING)
@@ -161,7 +158,7 @@ def setup_logging(
     default_level: int = logging.DEBUG,
     env_key: str = "LOG_CFG",
 ) -> None:
-    """Sets up the logging configuration.
+    """Set up the logging configuration.
 
     By default, uses the setup in code `default_log_config`. If a file
     `resources/logging.yml` exists in the directory where the application is
@@ -182,7 +179,6 @@ def setup_logging(
         `LOG_CFG=/path/to/my_logging.yml python {{cookiecutter.project_slug}}`
 
     """
-
     path = default_path
     value = os.getenv(env_key, None)
     if value:
@@ -194,22 +190,24 @@ def setup_logging(
             try:
                 logging.config.dictConfig(config)
                 logger.debug("Logging configured from file.")
-            except (ValueError, KeyError) as err:
-                logger.error(
-                    ("Unable to load the configuration from file, contain "
-                     "configuration error.")
+            except (ValueError, KeyError):
+                logger.exception(
+                    (
+                        "Unable to load the configuration from file, contains "
+                        "configuration error."
+                    )
                 )
                 # When there is an error in the config, escalate the exception,
                 # otherwise the application would silently fall back on the
                 # default config.
-                raise err
+                raise
     else:
         try:
             default_log_config(log, default_level)
             logger.debug("Logging configured from default.")
-        except (ValueError, KeyError) as err:
-            logger.error(
+        except (ValueError, KeyError):
+            logger.exception(
                 ("Unable to load the default configuration from "
                  "default_log_config, contains configuration error.")
             )
-            raise err
+            raise

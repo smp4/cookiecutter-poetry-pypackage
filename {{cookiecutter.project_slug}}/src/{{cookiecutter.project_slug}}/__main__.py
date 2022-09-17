@@ -43,8 +43,8 @@ if __name__ == "__main__":
         # trace.
         try:
             x = 1 / 0
-        except ZeroDivisionError as e:
-            log.exception("ZeroDivisionError: %s", e)
+        except ZeroDivisionError:
+            log.exception("Can't divide by zero yo.")
 
         # not used in this stub but often useful for finding various files
         project_dir = Path(__file__).resolve().parents[2]

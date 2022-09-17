@@ -132,7 +132,7 @@ python_files = "tests.py test_*.py *_tests.py"
 
 {% if cookiecutter.use_mypy == 'y' %}
 [tool.mypy]
-disallow_any_unimported = true  # see https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/ 
+disallow_any_unimported = true  # see https://blog.wolt.com/engineering/2021/09/30/professional-grade-mypy-configuration/
 disallow_untyped_defs = true
 no_implicit_optional = true
 strict_equality = true
@@ -141,6 +141,15 @@ warn_redundant_casts = true
 warn_return_any = true
 check_untyped_defs = true
 show_error_codes = true
+pretty = true
+{% endif %}
+
+{% if cookiecutter.use_bandit == 'y' -%}
+[tool.bandit]
+exclude_dirs = ["*/.venv/*"]
+
+[tool.bandit.assert_used]
+skips = ["*_test.py", "*/test_*.py"]
 {% endif %}
 
 [tool.cruft]
