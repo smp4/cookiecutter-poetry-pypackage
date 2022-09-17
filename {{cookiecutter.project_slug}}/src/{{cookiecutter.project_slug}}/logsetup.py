@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 
 # default format string of a log message
 FORMAT_STR = (
-    "%(asctime)UTC|PID"
+    "%(asctime)s UTC|PID"
     "%(process)d|%(processName)s|%(name)s|%(levelname)s|%(message)s"
     "(%(filename)s:%(lineno)d)"
 )
@@ -128,14 +128,10 @@ def default_log_config(
     stdout_hdlr.setLevel(logging.DEBUG)  # messages < WARNING go to stdout
     stderr_hdlr.setLevel(logging.WARNING)  # messages >= WARNING go to stderr
 
-    log.addHandler(stdout_hdlr)
-    log.addHandler(stderr_hdlr)
-    log.setLevel(default_level)
-
-    #    rootLogger = logging.getLogger()
-    #    rootLogger.addHandler(stdout_hdlr)
-    #    rootLogger.addHandler(stderr_hdlr)
-    #    rootLogger.setLevel(MIN_LEVEL)
+    rootLogger = logging.getLogger()
+    rootLogger.addHandler(stdout_hdlr)
+    rootLogger.addHandler(stderr_hdlr)
+    rootLogger.setLevel(default_level)
 
     use_colours = True  # Set to False to use standard formatter with no colour
 
@@ -145,11 +141,6 @@ def default_log_config(
     else:
         stdout_hdlr.setFormatter(PlainFormatter())
         stderr_hdlr.setFormatter(PlainFormatter())
-
-
-#    stream_handler = logging.StreamHandler()
-#    stream_handler.setFormatter(formatter)
-#    log.addHandler(stream_handler)
 
 
 def setup_logging(
@@ -163,7 +154,7 @@ def setup_logging(
     By default, uses the setup in code `default_log_config`. If a file
     `resources/logging.yml` exists in the directory where the application is
     executed, or a relative path is given to such a file, then that file will
-    be loaded and used to configure the logging. Finally, you command also set
+    be loaded and used to configure the logging. Finally, you can also set
     LOG_CFG environment variable to load the logging configuration from a path.
 
     Args:

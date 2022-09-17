@@ -50,6 +50,7 @@ def main(names: Optional[Sequence[str]] = Non = None) -> int:
     """Console script for {{cookiecutter.project_slug}}."""
     logger.debug("Using Click.")
 
+    click.echo("")
     click.echo("{{ cookiecutter.project_slug }}")
     click.echo("=" * len("{{ cookiecutter.project_slug }}"))
     click.echo("{{ cookiecutter.project_short_description }}")

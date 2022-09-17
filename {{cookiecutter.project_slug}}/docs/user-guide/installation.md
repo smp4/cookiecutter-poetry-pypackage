@@ -26,7 +26,7 @@ If you don't have `pip` installed, this [Python installation guide][] can guide 
 
 ## Installing From source
 
-The source for {{ cookiecutter.project_name }} can be downloaded from the GitHub repo. The recommended installation method to add {{ cookiecutter.project_name }} as dependency, from source, to your project is to use `Poetry`: 
+The source for {{ cookiecutter.project_name }} can be downloaded from the GitHub repo. The recommended installation method to add {{ cookiecutter.project_name }} as dependency, from source, to your project is to use `Poetry`:
 
 ``` shell
 $ poetry add git+ssh://git@github.com:usr/package_name.git#main
@@ -51,7 +51,13 @@ $ git clone git://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.
 When imported as a library, all logs are sent to the NULL handler (ie. *no logs* are communicated to the user) unless the calling application has set up its own log handling. See the [`logging` docs](https://docs.python.org/3/howto/logging.html#configuring-logging-for-a-library).
 
 
-When {{ cookiecutter.project_name }} is run as an application, for example with `python -m {{ cookiecutter.project_slug }}`, a default log configuration is applied which will send all logs lower than `WARNING` to `stdout` and `WARNING`, `ERROR`, `CRITICAL` to `stderr`. The user may apply their own custom formatting via a `logging.yml` file which must be stored in the `resources` directory inside the directory from which {{cookiecutter.project_slug}} is executed. Alternatively, if the logging file is stored elsewhere, it can be passed through via environment variable with
+When {{ cookiecutter.project_name }} is run as an application, for example with `python -m {{ cookiecutter.project_slug }}`, a default log configuration is applied which will send all logs lower than `WARNING` to `stdout` and `WARNING`, `ERROR`, `CRITICAL` to `stderr`.
+
+!!! warning
+User configuration file setup of logging is not fully implemented. A config
+file name and path that doesn't match the example below will not work.
+
+The user may apply their own custom formatting via a `logging.yml` file which must be stored in the `resources` directory inside the directory from which {{cookiecutter.project_slug}} is executed. Alternatively, if the logging file is stored elsewhere, it can be passed through via environment variable with
 
 ```shell
 $ LOG_CFG=/path/to/my_logging.yml python {{cookiecutter.project_slug}}

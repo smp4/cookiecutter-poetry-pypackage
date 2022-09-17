@@ -31,7 +31,8 @@ Main features include:
 * Develop as a package.
 * As much project configuration in `pyproject.toml` as possible. Unfortunately not possible for `flake8`.
 * `logging` is set up according to [Twelve Factor App](https://12factor.net/logs) principles. The library logs to the `NullHandler` unless the calling application implements its own application-specific handlers. A default configuration is applied if the package is called with `python -m {{cookiecutter.project_slug}}`, sending logs as streams to `stdout` and `stderr` for the application user to route and store as necessary. Logs are coloured for easy reading on the console, and stack traces are converted to single line entries. Modify `logsetup.py`to change this behaviour.
-* All documentation and docstrings in `Markdown`. No ReStructured text. Use a single syntax everywhere.
+* All documentation and docstrings in `Markdown`. No ReStructured text. Use a single syntax everywhere. 
+* The structure of the documentation takes the [MkDocs Documentation](https://www.mkdocs.org/) as inpsiration. No symlinks are used between docs in `docs/` and source code files like `CONTRIBUTING` and `CHANGELOG`. Instead, this two files are taken out of source code and put in the `docs/` tree so that `MkDocs` can link to them when statically and dynamically linked, and to avoid duplicating information in the project.
 
 ## Assumptions
 
@@ -166,13 +167,16 @@ The `<<venv_name>>` should be replaced with the text used for `project_slug` in 
 #### Set up Branches
 Create development branch:
 
-1. Click on the "main" dropdown button your repo's homepage
-2. Type in "development" in the search bar
-3. Select "Create branch: development from main". **Needed for GitHub workflows**
+1. Click on the "main" dropdown button your repo's homepage.
+2. Type in "development" in the search bar.
+3. Select "Create branch: development from main". **Needed for GitHub workflows**.
 
 If GitHub workflows are enabled, opening a pull request from `development` to `main` will automatically run code checks to make sure it is safe to merge. 
 
 #### Set up Documentation page on GitHub
+
+Requires a public repository or an upgraded GitHub account.
+
 Github Actions will have created a `gh-pages` branch. All the files in that branch are automatically generated from the files in the repository's docs folder. For more information on how to add pages to this documentation visit [MkDocs-Material](https://squidfunk.github.io/mkdocs-material/) docs.
 
 GitHub repositories automatically serve static content when committed to a branch named `gh-pages`.
@@ -180,7 +184,7 @@ GitHub repositories automatically serve static content when committed to a branc
 To publish the docs to your own github site do the following:
 
 1. Go to "Settings" section.
-2. Scroll down to "GitHub Pages" section.
+2. Scroll down to "Pages" section.
 3. Within the "Source" section select `gh-pages` branch and `/(root)`.
 4. Click "Save" button.
 
@@ -310,11 +314,11 @@ $ poetry run isort --profile="black" src tests
 $ poetry run docformatter --syntax="google" --recursive --black=True src tests
 ```
 
-
-
-
 ## Testing
 
+```shell
+$ make test
+```
 
 ## Documentation
 
@@ -387,8 +391,13 @@ This creates a `site/` directory.
 $ mkdocs serve
 ```
 
-Then go to [http://127.0.0.1:8000](http:/127.0.0.1:8000). `serve` will rebuild your documentation whenever anything in the configuration file, documentation directory, or theme directory changes.
+or
 
+```shell
+$ make docs
+```
+
+Then go to [http://127.0.0.1:8000](http:/127.0.0.1:8000). `serve` will rebuild your documentation whenever anything in the configuration file, documentation directory, or theme directory changes.
 
 
 ## Versioning and Changelog
@@ -481,9 +490,15 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 * Automatic version bumping, [Semantic Versioning](https://semver.org/), development cycle and changelog (see [keepachangelog](https://keepachangelog.com/en/1.0.0/)):
     * Possible tool - [gitchangelog](https://github.com/vaab/gitchangelog#incremental-changelog#)
     * Mimic [Python Development Guide](https://devguide.python.org/developer-workflow/development-cycle/#devcycle).
+    * https://python-semantic-release.readthedocs.io/en/latest/
 * review: https://blog.wolt.com/engineering/2022/08/11/project-template-for-modern-python-packages/
 * implement features to protect against supply chain attacks: import typos
 * badges, https://pylint.pycqa.org/en/latest/user_guide/installation/badge.html
+* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/
+* https://pre-commit.com/
+* remove github actions and just use local commit hooks.
+* fix logging to read a non-standard name and file location for user config
+    file.
 
 ## Credits
 

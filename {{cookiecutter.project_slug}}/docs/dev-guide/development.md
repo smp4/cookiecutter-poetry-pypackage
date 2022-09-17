@@ -38,6 +38,6 @@ Run the checks and tests:
 
 ``` shell
 $ make checks
-$ make tests
+$ make test
 ```
 
