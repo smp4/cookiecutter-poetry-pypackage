@@ -46,7 +46,7 @@ logger = logging.getLogger(__name__)
 @click.command()
 @click.version_option()
 @click.argument("names", nargs=-1)
-def main(names: Optional[Sequence[str]] = Non = None) -> int:
+def main(names: Optional[Sequence[str]] = None) -> int:
     """Console script for {{cookiecutter.project_slug}}."""
     logger.debug("Using Click.")
 

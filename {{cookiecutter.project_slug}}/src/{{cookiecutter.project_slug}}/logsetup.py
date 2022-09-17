@@ -195,7 +195,9 @@ def setup_logging(
             logger.debug("Logging configured from default.")
         except (ValueError, KeyError):
             logger.exception(
-                ("Unable to load the default configuration from "
-                 "default_log_config, contains configuration error.")
+                (
+                    "Unable to load the default configuration from "
+                    "default_log_config, contains configuration error."
+                )
             )
             raise

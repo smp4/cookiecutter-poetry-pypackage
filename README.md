@@ -144,6 +144,7 @@ To check that the environment was installed as expected:
 ```shell
 $ poetry env list
 $ poetry env info
+$ poetry show --tree
 ```
 
 ### Add the Virtual Environment to Jupyter-Lab Kernel List
