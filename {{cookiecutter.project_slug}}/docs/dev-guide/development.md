@@ -6,6 +6,9 @@ authors:
 date: {% now 'local', '%Y-%m-%d' %}
 ---
 
+
+## Installing from source for development
+
 Clone the repo:
 
 ```shell
@@ -25,6 +28,27 @@ Run {{cookiecutter.project_name}} from source tree on your machine:
 ```shell
 $ poetry run python -m {{cookiecutter.project_slug}}
 ```
+
+## Installing from a local build
+
+```shell
+$ make dist
+```
+
+If your package should be run as a command-line application, the recommended method is to use `pipx` so that your software and its dependencies are installed into its own isolated environment, without polluting your python interpreter's `site-packages`. This can be done with:
+
+```bash
+$ pipx install dist/<<package_name_with_version>>.tar.gz
+```
+
+or 
+
+```bash
+$ pipx install dist/<<package_name_with_version>>.whl
+```
+
+
+## Boilerplate
 
 Keeping the boilerplate up to date with the original [cookiecutter template](https://github.com/smp4/cookiecutter-poetry-pypackage):
 

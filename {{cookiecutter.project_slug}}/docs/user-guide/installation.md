@@ -19,9 +19,7 @@ To install {{ cookiecutter.project_name }}, run this command in your terminal:
 $ pip install {{ cookiecutter.project_slug }}
 ```
 
-This is the preferred method to install {{ cookiecutter.project_name}}, as it will always install the most recent stable release.
-
-If you don't have `pip` installed, this [Python installation guide][] can guide you through the process. You can also replace `pip` with `pipx`.
+This is the preferred method to install {{ cookiecutter.project_name}}, as it will always install the most recent stable release. You can also replace `pip` with `pipx`.
 
 
 ## Installing From source
@@ -32,7 +30,7 @@ The source for {{ cookiecutter.project_name }} can be downloaded from the GitHub
 $ poetry add git+ssh://git@github.com:usr/package_name.git#main
 ```
 
-To install {{ cookiecutter.project_name }} it as a command line application, use `pipx` (which isolates it into its own environment):
+To install {{ cookiecutter.project_name }} as a command line application, use `pipx` (which isolates it into its own environment):
 
 ```shell
 $ pipx install git+ssh://git@github.com:usr/package_name
