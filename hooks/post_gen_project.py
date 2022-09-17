@@ -23,23 +23,9 @@ if __name__ == "__main__":
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
         remove_file("LICENSE")
 
-    # GitHub Actions
-    if "{{ cookiecutter.use_github_actions_for_ci }}" != "y":
-        remove_file(".github/workflows/code_quality_checks.yml")
-
-    if "{{ cookiecutter.use_github_actions_to_publish_docs }}" != "y":
-        remove_file(".github/workflows/docs_publish.yml")
-
-    if "{{ cookiecutter.use_github_actions_for_pypi_deployment }}" != "y":
-        remove_file(".github/workflows/pypi_publish.yml")
-        remove_file(".github/workflows/test_pypi_publish.yml")
-
     # CI Checks
     if "{{ cookiecutter.use_flake8 }}" != "y":
         remove_file(".flake8")
-
-    #    if "{{ cookiecutter.use_mypy }}" != "y":
-    #       remove_file("mypy.ini")
 
     if "{{ cookiecutter.use_yamllint }}" != "y":
         remove_file("yamllint-config.yml")
