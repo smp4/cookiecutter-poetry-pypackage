@@ -21,12 +21,6 @@
     "command_line_interface": ["Click", "Argparse", "No command-line interface"],
     "use_pypi": "n",
     "pypi_username": "{{ cookiecutter.github_username }}",
-    "use_github_actions_for_pypi_deployment": "n",
-    "use_github_actions_for_ci": "y",
-    "use_github_actions_to_publish_docs": "y",
-    "use_datascience": "y",
-    "_copy_without_render": [
-        ".github/workflows/pypi_publish.yml",
-        ".github/workflows/test_pypi_publish.yml"
+    "use_datascience": "y"
     ]
 }
