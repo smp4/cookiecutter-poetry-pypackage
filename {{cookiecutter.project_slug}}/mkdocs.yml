@@ -15,24 +15,29 @@ copyright: Copyright &copy; {% now 'local', '%Y' %} {{ cookiecutter.full_name }}
 # Configuration
 theme:
   name: material
+  font: false  # data privacy, don't pull from Google fonts
   icon:
     repo: fontawesome/brands/github
   features:
     - navigation.instant
     - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
   language: en
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-        icon: material/brightness-7
+        icon: material/toggle-switch 
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-        icon: material/brightness-4
+        icon: material/toggle-switch-off-outline
         name: Switch to light mode
 
 
@@ -60,12 +65,12 @@ nav:
   - Introduction: index.md
   - Quick Start: quickstart.md
   - User Guide:
-      - Overview: user-guide/index.md
+     # - Overview: user-guide/index.md
       - Installation: user-guide/installation.md
       - Tutorials: user-guide/tutorials.md
       - How Tos: user-guide/howtos.md
   - Developer Guide:
-      - Overview: dev-guide/index.md
+    # - Overview: dev-guide/index.md
       - Development: dev-guide/development.md
       - Explanation: dev-guide/explanation.md
   - About:
