@@ -6,9 +6,13 @@ authors:
 date: {% now 'local', '%Y-%m-%d' %}
 ---
 
-This page describes the quickstart instructions for {{cookiecutter.project_name}}.
+Getting started quickly with {{cookiecutter.project_name}}.
 
 ## Prerequisites
+
+## Installation
+
+From source...from pypi?
 
 ## The Basics
 To use `{{ cookiecutter.project_name }}` in a project:
@@ -17,8 +21,6 @@ To use `{{ cookiecutter.project_name }}` in a project:
 import {{ cookiecutter.project_slug }}
 ```
 
-
-## First Example
 
 ## Basic Operations
 

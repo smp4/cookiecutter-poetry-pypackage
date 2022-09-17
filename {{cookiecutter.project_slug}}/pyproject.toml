@@ -48,7 +48,7 @@ python-dotenv = "*"  # 12 factor app environment configuration
 [tool.poetry.dev-dependencies]
 # Documentation
 mkdocs-material = "*"
-mkdocstrings = "*"
+mkdocstrings = {version = "*", extras = ["python-legacy"]}
 
 # Testing
 {%- if cookiecutter.use_pytest == 'y' %}

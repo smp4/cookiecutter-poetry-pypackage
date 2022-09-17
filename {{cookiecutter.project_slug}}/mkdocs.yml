@@ -25,11 +25,13 @@ theme:
 # Plugins
 plugins:
   - mkdocstrings
+  - search
 
 # Extensions
 markdown_extensions:
   - toc:
       permalink: true
+  - admonition
 
 # Footer
 extra:
@@ -41,17 +43,19 @@ extra:
 # Page tree
 nav:
   - Introduction: index.md
-  - Installation: installation.md
   - Quick Start: quickstart.md
-  - Tutorials: tutorials.md
-  - Advanced:
-      - How Tos: advanced/howtos.md
-      - Explanation: advanced/explanation.md
-  - API Reference: api.md
+  - User Guide:
+      - Overview: user-guide/index.md
+      - Installation: user_guide/installation.md
+      - Tutorials: user_guide/tutorials.md
+      - How Tos: user_guide/howtos.md
+  - Developer Guide:
+      - Overview: user-guide/index.md
+      - Development: dev-guide/development.md
+      - Explanation: dev-guide/explanation.md
   - About:
-      - Release Notes: about/changelog.md
-      - Contributor Guide: about/contributing.md
+      - Release Notes: about/CHANGELOG.md
+      - Contributing: about/CONTRIBUTING.md
       - License: about/license.md
-{%- if cookiecutter.create_author_file == 'y' %}
-      - Authors: about/authors.md {%- endif %}
+  - API Reference: api.md
   - Glossary: glossary.md

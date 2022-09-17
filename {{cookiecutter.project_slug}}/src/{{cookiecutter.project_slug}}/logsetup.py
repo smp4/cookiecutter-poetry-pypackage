@@ -53,11 +53,11 @@ class ColouredFormatter(logging.Formatter):
         logging.CRITICAL: bold_red + FORMAT_STR + reset,
     }
 
-    def formatException(
-        self, exc_info: logging._SysExcInfoType  # pylint: disable=no-member
-    ) -> str:
+    def formatException(  # type: ignore
+        self, ei
+    ) -> str:  # pylint: disable=no-member
         """Format an exception so that it prints on a single line."""
-        result = super().formatException(exc_info)
+        result = super().formatException(ei)
         return repr(result)  # or format into one line however you want to
 
     def format(self, record: logging.LogRecord) -> str:
