@@ -25,19 +25,22 @@ theme:
     - navigation.sections
     - navigation.expand
     - navigation.indexes
+    - navigation.top
+    - search.suggest
+    - search.highlight
   language: en
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
       toggle:
-        icon: material/toggle-switch 
+        icon: material/weather-night 
         name: Switch to dark mode
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       toggle:
-        icon: material/toggle-switch-off-outline
+        icon: material/weather-sunny
         name: Switch to light mode
 
 
@@ -65,14 +68,12 @@ nav:
   - Introduction: index.md
   - Quick Start: quickstart.md
   - User Guide:
-      user-guide/index.md
-     # - Overview: user-guide/index.md
+      - user-guide/index.md
       - Installation: user-guide/installation.md
       - Tutorials: user-guide/tutorials.md
       - How Tos: user-guide/howtos.md
   - Developer Guide:
       - dev-guide/index.md
-    # - Overview: dev-guide/index.md
       - Development: dev-guide/development.md
       - Explanation: dev-guide/explanation.md
   - About:
