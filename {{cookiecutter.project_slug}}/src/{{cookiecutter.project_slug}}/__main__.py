@@ -15,8 +15,8 @@ Why does this file exist, and why __main__? For more info, read:
 """
 
 import logging
-{% if ( cookiecutter.command_line_interface|lower != 'click' or
-        cookiecutter.command_line_interface|lower != 'argparse' ) -%}
+{% if ( cookiecutter.command_line_interface|lower != 'click' ) or
+      (  cookiecutter.command_line_interface|lower != 'argparse' ) -%}
 import sys
 {%- endif %}
 from pathlib import Path
