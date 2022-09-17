@@ -147,7 +147,7 @@ $ poetry env info
 
 ### Add the Virtual Environment to Jupyter-Lab Kernel List
 
-If you want to use `Jupyter-Lab` as part of your project development flow, it can be useful to add the virtual environment of your project othe `Jupyter-Lab` kernel list. This allows you to select the virtual environment of your project in the kernel list in your notebooks.
+If you want to use `Jupyter-Lab` as part of your project development flow, it can be useful to add the virtual environment of your project other `Jupyter-Lab` kernel list. This allows you to select the virtual environment of your project in the kernel list in your notebooks.
 
 For this to work, you should have selected the `use_jupyter` option in the cookiecutter setup to install `ipykernel`.
 
