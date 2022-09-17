@@ -52,8 +52,8 @@ When imported as a library, all logs are sent to the NULL handler (ie. *no logs*
 When {{ cookiecutter.project_name }} is run as an application, for example with `python -m {{ cookiecutter.project_slug }}`, a default log configuration is applied which will send all logs lower than `WARNING` to `stdout` and `WARNING`, `ERROR`, `CRITICAL` to `stderr`.
 
 !!! warning
-User configuration file setup of logging is not fully implemented. A config
-file name and path that doesn't match the example below will not work.
+    User configuration file setup of logging is not fully implemented. A config
+    file name and path that doesn't match the example below will not work. 
 
 The user may apply their own custom formatting via a `logging.yml` file which must be stored in the `resources` directory inside the directory from which {{cookiecutter.project_slug}} is executed. Alternatively, if the logging file is stored elsewhere, it can be passed through via environment variable with
 
