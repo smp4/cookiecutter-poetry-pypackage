@@ -11,4 +11,4 @@ The [Development Guide](development.md) gives advanced used instructions on how 
 
 The [Explanation](explanation.md) tries to justify how and why {{cookiecutter.project_name}} does what it does.
 
-If you're interested in contributing, see the [Contributing Guide](../about/contributing.md).
+If you're interested in contributing, see the [Contributing Guide](../about/CONTRIBUTING.md).
