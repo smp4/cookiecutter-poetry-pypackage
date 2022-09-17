@@ -22,5 +22,4 @@
     "use_pypi": "n",
     "pypi_username": "{{ cookiecutter.github_username }}",
     "use_datascience": "y"
-    ]
 }
