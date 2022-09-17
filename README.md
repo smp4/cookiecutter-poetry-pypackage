@@ -492,14 +492,13 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
     * Possible tool - [gitchangelog](https://github.com/vaab/gitchangelog#incremental-changelog#)
     * Mimic [Python Development Guide](https://devguide.python.org/developer-workflow/development-cycle/#devcycle).
     * https://python-semantic-release.readthedocs.io/en/latest/
-* review: https://blog.wolt.com/engineering/2022/08/11/project-template-for-modern-python-packages/
+    * [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/
 * implement features to protect against supply chain attacks: import typos
 * badges, https://pylint.pycqa.org/en/latest/user_guide/installation/badge.html
-* [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/
-* https://pre-commit.com/
-* remove github actions and just use local commit hooks.
-* fix logging to read a non-standard name and file location for user config
-    file.
+* set up pre commit hooks.
+    * https://pre-commit.com/
+* fix logging to read a non-standard name and file location for user config file.
+* development flow guideline for developing on dev branch
 
 ## Credits
 
