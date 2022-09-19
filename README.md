@@ -497,6 +497,9 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 * badges, https://pylint.pycqa.org/en/latest/user_guide/installation/badge.html
 * set up pre commit hooks.
     * https://pre-commit.com/
+    * every local git commit runs all code checks and tests. 
+    * every commit to `develop` runs tests and creates a build
+    * example script to listen/ monitor and install latest release on `main` and `prev`
 * fix logging to read a non-standard name and file location for user config file.
 * development flow guideline for developing on dev branch
 * add instruction how to delete jlab kernel if project/ venv is deleted
