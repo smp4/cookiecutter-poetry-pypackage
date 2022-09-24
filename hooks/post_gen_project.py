@@ -19,6 +19,7 @@ if __name__ == "__main__":
 
     # rename data_template dir to data after cookie is baked
     os.system("mv data_template data")
+    os.system("tree -aL 2")
 
     # AUTHORS
     if "{{ cookiecutter.create_author_file }}" != "y":
