@@ -11,6 +11,9 @@ def remove_file(filepath: str) -> None:
 
 
 if __name__ == "__main__":
+
+    os.system("tree -aL 2")
+
     # rename .env_template to .env after cookie is baked
     os.rename(".env_template", ".env")
 
