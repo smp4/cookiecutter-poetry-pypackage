@@ -17,7 +17,6 @@ if __name__ == "__main__":
     # AUTHORS
     if "{{ cookiecutter.create_author_file }}" != "y":
         remove_file("AUTHORS.md")
-        remove_file("docs/about/authors.md")
 
     # LICENSE
     if "{{ cookiecutter.open_source_license }}" == "Not open source":
@@ -32,7 +31,7 @@ if __name__ == "__main__":
 
     # Datascience directories
     if "{{ cookiecutter.use_datascience }}" != "y":
-        remove_file("data/")
+        remove_file("data")
         remove_file("models/")
         remove_file("references/")
 
