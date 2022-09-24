@@ -38,9 +38,7 @@ if __name__ == "__main__":
 
     # Datascience directories
     if "{{ cookiecutter.use_datascience }}" != "y":
-        remove_file("data")
-        remove_file("models/")
-        remove_file("references/")
+        os.system("rm -rf data models references")
 
     # Jupyter directories
     if "{{ cookiecutter.use_jupyter }}" != "y":
