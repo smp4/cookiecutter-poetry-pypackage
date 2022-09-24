@@ -129,6 +129,8 @@ pyenv install 3:latest  # 3.10.6
 pyenv local 3.10.6
 ```
 
+**Note!** By default, Poetry uses the Python version used during Poetry installation to create new virtual environments. Using the above workflow with `pyenv`, this means that Poetry would normally ignore the local python version set by `pyenv local 3.10.6`. This cookiecutter template avoids this by setting `virtualenvs.prefer-active-python = true` in `poetry.toml`. See [more here](https://python-poetry.org/docs/configuration/#virtualenvsprefer-active-python-experimental).
+
 Now initialise everything with the makefile. This will install the template project with `poetry` and run a first check of all the code.
 
 ```shell
