@@ -171,10 +171,17 @@ The `<<venv_name>>` should be replaced with the text used for `project_slug` in 
 Create development branch:
 
 1. Click on the "main" dropdown button your repo's homepage.
-2. Type in "development" in the search bar.
-3. Select "Create branch: development from main". **Needed for GitHub workflows**.
+2. Type in "develop" in the search bar.
+3. Select "Create branch: develop from main". 
 
-If GitHub workflows are enabled, opening a pull request from `development` to `main` will automatically run code checks to make sure it is safe to merge. 
+Alternatively, from the command line:
+
+```shell
+$ git checkout -b develop main
+$ git push -u origin develop
+```
+
+If GitHub workflows are enabled, opening a pull request from `develop` to `main` will automatically run code checks to make sure it is safe to merge. 
 
 #### Set up Documentation page on GitHub
 
