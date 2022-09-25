@@ -109,6 +109,7 @@ checks-yamllint:
 .PHONY: checks-flake8
 checks-flake8:
 	poetry run flake8 src tests
+	poetry run flake8 --select=DUO src tests
 {%- endif %}
 
 ## Check code security with bandit
