@@ -512,7 +512,7 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 * fix logging to read a non-standard name and file location for user config file.
 * development flow guideline for developing on dev branch
 * add instruction how to delete jlab kernel if project/ venv is deleted
-
+* check out http://talkpython.fm/362, nox for dev tasks instead of make file (all in python rather than shell script, set ip actions that can run locally before going to gh actions), pre-commit, town crier etc
 
 ## Credits
 
