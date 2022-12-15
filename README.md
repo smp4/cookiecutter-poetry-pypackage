@@ -513,6 +513,7 @@ $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 * development flow guideline for developing on dev branch
 * add instruction how to delete jlab kernel if project/ venv is deleted
 * check out http://talkpython.fm/362, nox for dev tasks instead of make file (all in python rather than shell script, set ip actions that can run locally before going to gh actions), pre-commit, town crier etc
+* Talk Python To Me Podcast, Hypermodern python projects: Nox, Towncrier, precommit. 
 
 ## Credits
 
