@@ -494,6 +494,13 @@ $ poetry run black .
 $ poetry run flake8 \{\{cookiecutter.project_slug\}\}
 ```
 
+## Security
+
+Before installing unknown packages, review them at:
+
+* https://snyk.io/advisor/
+* https://osv.dev/
+
 ## Future Work
 
 * Optional Terminal User Interface (TUI)
